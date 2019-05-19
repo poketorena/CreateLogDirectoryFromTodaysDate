@@ -8,431 +8,431 @@
 
 namespace MyUtility
 {
-	// MyUtility–¼‘O‹óŠÔƒXƒR[ƒv‚Å–¼‘O‹óŠÔstd‚ğÈ—ª‚·‚é
-	using namespace std;
-
-	/// <summary>
-	/// •¶š—ñ‚ÉŠÖ‚·‚éƒ†[ƒeƒBƒŠƒeƒBƒNƒ‰ƒX
-	/// </summary>
-	class String final
-	{
-	public:
-		/// <summary>
-		/// w’è‚³‚ê‚½•¶š‚Å‹æØ‚ç‚ê‚½•”•ª•¶š—ñ‚ğŠi”[‚·‚é•¶š—ñ”z—ñ‚ğ•Ô‚µ‚Ü‚·B
-		/// </summary>
-		/// <param name="sourceString">ˆ—‘ÎÛ‚Ì•¶š—ñ</param>
-		/// <param name="delimiter">‹æØ‚è•¶š</param>
-		/// <returns></returns>
-		inline static vector<string> Split(const string& sourceString, const char& delimiter)
-		{
-			// •Ô‚è’l—p‚Ì•¶š—ñ”z—ñ
-			vector<string> elements;
-
-			// •”•ª•¶š—ñ
-			string item;
-
-			for (const auto& character : sourceString)
-			{
-				// ‹æØ‚è•¶š‚©‚Â•”•ª•¶š—ñ‚ª‹ó‚Å‚È‚¢‚È‚ç•¶š—ñ”z—ñ‚É•¶š—ñ‚ğ’Ç‰Á‚·‚é
-				if (character == delimiter)
-				{
-					if (!item.empty())
-					{
-						elements.push_back(item);
-					}
-					item.clear();
-				}
-				else
-				{
-					item += character;
-				}
-			}
-
-			// •¶š—ñ––”ö‚Ì•”•ª•¶š—ñ‚ª‚ ‚é‚È‚ç•¶š—ñ”z—ñ‚É’Ç‰Á‚·‚é
-			if (!item.empty())
-			{
-				elements.push_back(item);
-			}
-
-			return elements;
-		}
-	private:
-		// ‹[—“I‚ÈÃ“IƒNƒ‰ƒX‚Æ‚µ‚Äˆµ‚¤‚½‚ß‚ÉƒRƒ“ƒXƒgƒ‰ƒNƒ^[“™‚ğprivate‚É‚·‚é
-
-		/// <summary>
-		/// ƒfƒtƒHƒ‹ƒgƒRƒ“ƒXƒgƒ‰ƒNƒ^[
-		/// </summary>
-		String() = default;
-
-		/// <summary>
-		/// ƒfƒtƒHƒ‹ƒgƒfƒXƒgƒ‰ƒNƒ^
-		/// </summary>
-		~String() = default;
-
-		/// <summary>
-		/// ƒRƒs[ƒRƒ“ƒXƒgƒ‰ƒNƒ^[
-		/// </summary>
-		/// <param name="">StringŒ^‚Ì¶•Ó’lQÆ</param>
-		String(const String&) = delete;
-
-		/// <summary>
-		/// ƒRƒs[‘ã“ü‰‰Zq
-		/// </summary>
-		/// <param name="">StringŒ^‚Ì¶•Ó’lQÆ</param>
-		/// <returns>StringŒ^‚Ì¶•Ó’lQÆ</returns>
-		String& operator=(const String&) = delete;
-
-		/// <summary>
-		/// ƒ€[ƒuƒRƒ“ƒXƒgƒ‰ƒNƒ^[
-		/// </summary>
-		/// <param name="">StringŒ^‚Ì‰E•Ó’lQÆ</param>
-		String(String&&) = delete;
-
-		/// <summary>
-		/// ƒRƒs[‘ã“ü‰‰Zq
-		/// </summary>
-		/// <param name="">StringŒ^‚Ì‰E•Ó’lQÆ</param>
-		/// <returns>StringŒ^‚Ì¶•Ó’lQÆ</returns>
-		String& operator=(String&&) = delete;
-	};
-
-	/// <summary>
-	/// “ú•t‚ğ•\‚·ƒNƒ‰ƒX
-	/// </summary>
-	class Date final
-	{
-	public:
-		// ”N
-		const int Year;
-
-		// Œ
-		const string Month;
-
-		// “ú
-		const int Day;
-
-		// —j“ú
-		const string DayOfWeek;
-
-		// 
-		const int Hour;
-
-		// •ª
-		const int Minute;
-
-		// •b
-		const int Second;
-
-		/// <summary>
-		/// ƒRƒ“ƒXƒgƒ‰ƒNƒ^[
-		/// </summary>
-		/// <param name="year">”N</param>
-		/// <param name="month">Œ</param>
-		/// <param name="day">“ú</param>
-		/// <param name="dayOfWeek">—j“ú</param>
-		/// <param name="hour"></param>
-		/// <param name="minute">•ª</param>
-		/// <param name="second">•b</param>
-		Date(const int& year, const string& month, const int& day, const string& dayOfWeek, const int& hour, const int& minute, const int& second) :
-			Year(year),
-			Month(month),
-			Day(day),
-			DayOfWeek(dayOfWeek),
-			Hour(hour),
-			Minute(minute),
-			Second(second)
-		{}
-
-		/// <summary>
-		/// ƒfƒtƒHƒ‹ƒgƒfƒXƒgƒ‰ƒNƒ^
-		/// </summary>
-		~Date() = default;
-	};
-
-	/// <summary>
-	/// “ú•t‚ÉŠÖ‚·‚éƒ†[ƒeƒBƒŠƒeƒBƒNƒ‰ƒX
-	/// </summary>
-	class DateTime final
-	{
-	public:
-		/// <summary>
-		/// Œ»İ‚ÌŒ»’n“ú‚ğ•Ô‚µ‚Ü‚·B
-		/// </summary>
-		/// <returns>¡“ú‚Ì“ú•t</returns>
-		inline static Date Now()
-		{
-			// Ã“IŠÖ”ƒXƒR[ƒv‚Å–¼‘O‹óŠÔstd::chrono‚ğÈ—ª‚·‚é
-			using namespace std::chrono;
-
-			// Œ»İ“ú‚ğæ“¾
-			auto timePoint = system_clock::now();
-
-			// time_point‚ğPOSIX ŠÔitime_tj‚É•ÏŠ·
-			auto timeTValue = system_clock::to_time_t(timePoint);
-
-			// ŠÔ‚ğ•\‚·•¶š—ñ‚ğæ‚èo‚·ƒoƒbƒtƒ@
-			char buffer[26];
-
-			// POSIX ŠÔ‚©‚çŠÔ‚ğ•\‚·•¶š—ñ‚É•ÏŠ·
-			ctime_s(buffer, sizeof buffer, &timeTValue);
-
-			// char[]‚ğstring‚É•ÏŠ·
-			auto timeString = string(buffer);
-
-			// •¶š—ñ‚©‚ç\n‚ğíœ‚·‚é
-			timeString = timeString.substr(0, timeString.size() - 1);
-
-			// ”¼ŠpƒXƒy[ƒX‚ğ‹æØ‚è•¶š‚Æ‚µ‚Ä•¶š—ñ‚ğ•ªŠ„‚·‚é
-			auto result = String::Split(timeString, ' ');
-
-			// —j“ú‚ğæ‚èo‚·
-			auto dayOfWeek = result[0];
-
-			// Œ‚ğæ‚èo‚·
-			auto month = result[1];
-
-			// “ú‚ğæ‚èo‚·
-			auto day = stoi(result[2]);
-
-			// ”N‚ğæ‚èo‚·
-			auto year = stoi(result[4]);
-
-			// A•ªA•b‚É•ª‰ğ‚·‚é
-			auto hourAndMinuteAndSecond = String::Split(result[3], ':');
-
-			// ‚ğæ‚èo‚·
-			auto hour = stoi(hourAndMinuteAndSecond[0]);
-
-			// •ª‚ğæ‚èo‚·
-			auto minute = stoi(hourAndMinuteAndSecond[1]);
-
-			// •b‚ğæ‚èo‚·
-			auto second = stoi(hourAndMinuteAndSecond[2]);
-
-			return Date{ year,  month,  day,  dayOfWeek,  hour,  minute,  second };
-		}
-	private:
-		// ‹[—“I‚ÈÃ“IƒNƒ‰ƒX‚Æ‚µ‚Äˆµ‚¤‚½‚ß‚ÉƒRƒ“ƒXƒgƒ‰ƒNƒ^[“™‚ğprivate‚É‚·‚é
-
-		/// <summary>
-		/// ƒfƒtƒHƒ‹ƒgƒRƒ“ƒXƒgƒ‰ƒNƒ^[
-		/// </summary>
-		DateTime() = default;
-
-		/// <summary>
-		/// ƒfƒtƒHƒ‹ƒgƒfƒXƒgƒ‰ƒNƒ^
-		/// </summary>
-		~DateTime() = default;
-
-		/// <summary>
-		/// ƒRƒs[ƒRƒ“ƒXƒgƒ‰ƒNƒ^[
-		/// </summary>
-		/// <param name="">DateTimeŒ^‚Ì¶•Ó’lQÆ</param>
-		DateTime(const DateTime&) = delete;
-
-		/// <summary>
-		/// ƒRƒs[‘ã“ü‰‰Zq
-		/// </summary>
-		/// <param name="">DateTimeŒ^‚Ì¶•Ó’lQÆ</param>
-		/// <returns>DateTimeŒ^‚Ì¶•Ó’lQÆ</returns>
-		DateTime& operator=(const DateTime&) = delete;
-
-		/// <summary>
-		/// ƒ€[ƒuƒRƒ“ƒXƒgƒ‰ƒNƒ^[
-		/// </summary>
-		/// <param name="">DateTimeŒ^‚Ì‰E•Ó’lQÆ</param>
-		DateTime(DateTime&&) = delete;
-
-		/// <summary>
-		/// ƒRƒs[‘ã“ü‰‰Zq
-		/// </summary>
-		/// <param name="">DateTimeŒ^‚Ì‰E•Ó’lQÆ</param>
-		/// <returns>DateTimeŒ^‚Ì¶•Ó’lQÆ</returns>
-		DateTime& operator=(DateTime&&) = delete;
-	};
-
-	/// <summary>
-	/// ƒtƒ@ƒCƒ‹‚ÉŠÖ‚·‚éƒ†[ƒeƒBƒŠƒeƒBƒNƒ‰ƒX
-	/// </summary>
-	class FileSystem
-	{
-	public:
-		/// <summary>
-		/// w’è‚µ‚½ƒfƒBƒŒƒNƒgƒŠ‚ÌƒpƒX‚É‚ ‚éƒtƒ@ƒCƒ‹AƒfƒBƒŒƒNƒgƒŠ‚Ì”‚ğ•Ô‚µ‚Ü‚·B
-		/// </summary>
-		/// <param name="root"></param>
-		/// <returns></returns>
-		inline static size_t FileCount(const filesystem::path& path)
-		{
-			// Ã“IŠÖ”ƒXƒR[ƒv‚Å–¼‘O‹óŠÔstd::filesystem‚ğÈ—ª‚·‚é
-			using namespace std::filesystem;
-			
-			// ƒpƒX‚ª‘¶İ‚µ‚È‚¢‚©w’è‚µ‚½ƒpƒX‚ªƒfƒBƒŒƒNƒgƒŠ‚Å‚È‚¢‚È‚ç0‚ğ•Ô‚·
-			if (!exists(path) || !is_directory(path)) return 0;
-
-			// ƒtƒ@ƒCƒ‹‚Ì”
-			std::size_t result = 0;
-			
-			// ƒfƒBƒŒƒNƒgƒŠƒCƒeƒŒ[ƒ^
-			directory_iterator last;
-
-			// Ä‹A“I‚Éƒtƒ@ƒCƒ‹AƒfƒBƒŒƒNƒgƒŠ‚Ì”‚ğ”‚¦‚é
-			for (directory_iterator pos(path); pos != last; ++pos)
-			{
-				++result;
-				if (is_directory(*pos)) result += FileCount(pos->path());
-			}
-
-			return result;
-		}
-	private:
-		// ‹[—“I‚ÈÃ“IƒNƒ‰ƒX‚Æ‚µ‚Äˆµ‚¤‚½‚ß‚ÉƒRƒ“ƒXƒgƒ‰ƒNƒ^[“™‚ğprivate‚É‚·‚é
-
-		/// <summary>
-		/// ƒfƒtƒHƒ‹ƒgƒRƒ“ƒXƒgƒ‰ƒNƒ^[
-		/// </summary>
-		FileSystem() = default;
-
-		/// <summary>
-		/// ƒfƒtƒHƒ‹ƒgƒfƒXƒgƒ‰ƒNƒ^
-		/// </summary>
-		~FileSystem() = default;
-
-		/// <summary>
-		/// ƒRƒs[ƒRƒ“ƒXƒgƒ‰ƒNƒ^[
-		/// </summary>
-		/// <param name="">FileSystemŒ^‚Ì¶•Ó’lQÆ</param>
-		FileSystem(const FileSystem&) = delete;
-
-		/// <summary>
-		/// ƒRƒs[‘ã“ü‰‰Zq
-		/// </summary>
-		/// <param name="">FileSystemŒ^‚Ì¶•Ó’lQÆ</param>
-		/// <returns>FileSystemŒ^‚Ì¶•Ó’lQÆ</returns>
-		FileSystem& operator=(const FileSystem&) = delete;
-
-		/// <summary>
-		/// ƒ€[ƒuƒRƒ“ƒXƒgƒ‰ƒNƒ^[
-		/// </summary>
-		/// <param name="">FileSystemŒ^‚Ì‰E•Ó’lQÆ</param>
-		FileSystem(FileSystem&&) = delete;
-
-		/// <summary>
-		/// ƒRƒs[‘ã“ü‰‰Zq
-		/// </summary>
-		/// <param name="">FileSystemŒ^‚Ì‰E•Ó’lQÆ</param>
-		/// <returns>FileSystemŒ^‚Ì¶•Ó’lQÆ</returns>
-		FileSystem& operator=(FileSystem&&) = delete;
-	};
-
-	/// <summary>
-	/// ƒƒO‚ÉŠÖ‚·‚éƒ†[ƒeƒBƒŠƒeƒBƒNƒ‰ƒX
-	/// </summary>
-	class Log final
-	{
-	public:
-		/// <summary>
-		/// Œ»İ‚ÌŒ»’n“ú•t‚ÉŠî‚Ã‚¢‚ÄƒƒO—p‚ÌƒfƒBƒŒƒNƒgƒŠ‚ğì¬‚µ‚Ü‚·B
-		/// </summary>
-		/// <returns>ƒƒO—p‚ÌƒfƒBƒŒƒNƒgƒŠ‚Ì‘Š‘ÎƒpƒX</returns>
-		inline static string CreateLogDirectoryFromTodaysDate()
-		{
-			// Ã“IŠÖ”ƒXƒR[ƒv‚Å–¼‘O‹óŠÔstd::filesystem‚ğÈ—ª‚·‚é
-			using namespace std::filesystem;
-
-			// Œ»İ‚ÌŒ»’n“ú•t‚ğæ“¾‚·‚é
-			auto date = DateTime::Now();
-
-			// LogƒfƒBƒŒƒNƒgƒŠ‚Ì‘Š‘ÎƒpƒX
-			auto logDirectory = "Log"s;
-
-			// ‚à‚µLogƒfƒBƒŒƒNƒgƒŠ‚ª‘¶İ‚µ‚È‚¢‚È‚çLogƒfƒBƒŒƒNƒgƒŠ‚ğì‚é
-			if (!exists(logDirectory))
-			{
-				create_directory(logDirectory);
-			}
-
-			// yearƒfƒBƒŒƒNƒgƒŠ‚Ì‘Š‘ÎƒpƒX
-			auto yearDirectory = "Log"s + "/"s + to_string(date.Year);
-
-			// ‚à‚µyearƒfƒBƒŒƒNƒgƒŠ‚ª‘¶İ‚µ‚È‚¢‚È‚çyearƒfƒBƒŒƒNƒgƒŠ‚ğì‚é
-			if (!exists(yearDirectory))
-			{
-				create_directory(yearDirectory);
-			}
-
-			// monthƒfƒBƒŒƒNƒgƒŠ‚Ì‘Š‘ÎƒpƒX
-			auto monthDirectory = "Log"s + "/"s + to_string(date.Year) + "/"s + date.Month;
-
-			// ‚à‚µmonthƒfƒBƒŒƒNƒgƒŠ‚ª‘¶İ‚µ‚È‚¢‚È‚çmonthƒfƒBƒŒƒNƒgƒŠ‚ğì‚é
-			if (!exists(monthDirectory))
-			{
-				create_directory(monthDirectory);
-			}
-
-			// dayƒfƒBƒŒƒNƒgƒŠ‚Ì‘Š‘ÎƒpƒX
-			auto dayDirectory = "Log"s + "/"s + to_string(date.Year) + "/"s + date.Month + "/"s + to_string(date.Day);
-
-			// ‚à‚µdayƒfƒBƒŒƒNƒgƒŠ‚ª‘¶İ‚µ‚È‚¢‚È‚çdayƒfƒBƒŒƒNƒgƒŠ‚ğì‚é
-			if (!exists(dayDirectory))
-			{
-				create_directory(dayDirectory);
-			}
-
-			// dayƒfƒBƒŒƒNƒgƒŠ“à‚Ìƒtƒ@ƒCƒ‹‚Ì”‚ğæ“¾‚·‚é
-			auto fileCount = FileSystem::FileCount(dayDirectory);
-
-			// ƒXƒgƒŠƒ“ƒOƒXƒgƒŠ[ƒ€
-			std::stringstream stringStream;
-
-			// •¶š—ñ‚ğ”¼Šp5•¶š‚É‚»‚ë‚¦‚éA5•¶š–³‚¢ê‡‚Í0‚Å–„‚ß‚é
-			stringStream << setw(5) << setfill('0') << to_string(fileCount + 1);
-
-			// –¼‘O‚ªdayƒfƒBƒŒƒNƒgƒŠ“à‚Ìƒtƒ@ƒCƒ‹”‚ÌƒfƒBƒŒƒNƒgƒŠ‚Ì‘Š‘ÎƒpƒX
-			auto fileCountDirectory = "Log"s + "/"s + to_string(date.Year) + "/"s + date.Month + "/"s + to_string(date.Day) + "/"s + stringStream.str();
-
-			// –¼‘O‚ªdayƒfƒBƒŒƒNƒgƒŠ“à‚Ìƒtƒ@ƒCƒ‹”‚ÌƒfƒBƒŒƒNƒgƒŠ‚ğì‚é
-			create_directory(fileCountDirectory);
-
-			return fileCountDirectory;
-		}
-	private:
-		// ‹[—“I‚ÈÃ“IƒNƒ‰ƒX‚Æ‚µ‚Äˆµ‚¤‚½‚ß‚ÉƒRƒ“ƒXƒgƒ‰ƒNƒ^[“™‚ğprivate‚É‚·‚é
-
-		/// <summary>
-		/// ƒfƒtƒHƒ‹ƒgƒRƒ“ƒXƒgƒ‰ƒNƒ^[
-		/// </summary>
-		Log() = default;
-
-		/// <summary>
-		/// ƒfƒtƒHƒ‹ƒgƒfƒXƒgƒ‰ƒNƒ^
-		/// </summary>
-		~Log() = default;
-
-		/// <summary>
-		/// ƒRƒs[ƒRƒ“ƒXƒgƒ‰ƒNƒ^[
-		/// </summary>
-		/// <param name="">LogŒ^‚Ì¶•Ó’lQÆ</param>
-		Log(const Log&) = delete;
-
-		/// <summary>
-		/// ƒRƒs[‘ã“ü‰‰Zq
-		/// </summary>
-		/// <param name="">LogŒ^‚Ì¶•Ó’lQÆ</param>
-		/// <returns>LogŒ^‚Ì¶•Ó’lQÆ</returns>
-		Log& operator=(const Log&) = delete;
-
-		/// <summary>
-		/// ƒ€[ƒuƒRƒ“ƒXƒgƒ‰ƒNƒ^[
-		/// </summary>
-		/// <param name="">LogŒ^‚Ì‰E•Ó’lQÆ</param>
-		Log(Log&&) = delete;
-
-		/// <summary>
-		/// ƒRƒs[‘ã“ü‰‰Zq
-		/// </summary>
-		/// <param name="">LogŒ^‚Ì‰E•Ó’lQÆ</param>
-		/// <returns>LogŒ^‚Ì¶•Ó’lQÆ</returns>
-		Log& operator=(Log&&) = delete;
-	};
+    // MyUtilityåå‰ç©ºé–“ã‚¹ã‚³ãƒ¼ãƒ—ã§åå‰ç©ºé–“stdã‚’çœç•¥ã™ã‚‹
+    using namespace std;
+
+    /// <summary>
+    /// æ–‡å­—åˆ—ã«é–¢ã™ã‚‹ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã‚¯ãƒ©ã‚¹
+    /// </summary>
+    class String final
+    {
+    public:
+        /// <summary>
+        /// æŒ‡å®šã•ã‚ŒãŸæ–‡å­—ã§åŒºåˆ‡ã‚‰ã‚ŒãŸéƒ¨åˆ†æ–‡å­—åˆ—ã‚’æ ¼ç´ã™ã‚‹æ–‡å­—åˆ—é…åˆ—ã‚’è¿”ã—ã¾ã™ã€‚
+        /// </summary>
+        /// <param name="sourceString">å‡¦ç†å¯¾è±¡ã®æ–‡å­—åˆ—</param>
+        /// <param name="delimiter">åŒºåˆ‡ã‚Šæ–‡å­—</param>
+        /// <returns></returns>
+        inline static vector<string> Split(const string& sourceString, const char& delimiter)
+        {
+            // è¿”ã‚Šå€¤ç”¨ã®æ–‡å­—åˆ—é…åˆ—
+            vector<string> elements;
+
+            // éƒ¨åˆ†æ–‡å­—åˆ—
+            string item;
+
+            for (const auto& character : sourceString)
+            {
+                // åŒºåˆ‡ã‚Šæ–‡å­—ã‹ã¤éƒ¨åˆ†æ–‡å­—åˆ—ãŒç©ºã§ãªã„ãªã‚‰æ–‡å­—åˆ—é…åˆ—ã«æ–‡å­—åˆ—ã‚’è¿½åŠ ã™ã‚‹
+                if (character == delimiter)
+                {
+                    if (!item.empty())
+                    {
+                        elements.push_back(item);
+                    }
+                    item.clear();
+                }
+                else
+                {
+                    item += character;
+                }
+            }
+
+            // æ–‡å­—åˆ—æœ«å°¾ã®éƒ¨åˆ†æ–‡å­—åˆ—ãŒã‚ã‚‹ãªã‚‰æ–‡å­—åˆ—é…åˆ—ã«è¿½åŠ ã™ã‚‹
+            if (!item.empty())
+            {
+                elements.push_back(item);
+            }
+
+            return elements;
+        }
+    private:
+        // æ“¬ä¼¼çš„ãªé™çš„ã‚¯ãƒ©ã‚¹ã¨ã—ã¦æ‰±ã†ãŸã‚ã«ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ¼ç­‰ã‚’privateã«ã™ã‚‹
+
+        /// <summary>
+        /// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ¼
+        /// </summary>
+        String() = default;
+
+        /// <summary>
+        /// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+        /// </summary>
+        ~String() = default;
+
+        /// <summary>
+        /// ã‚³ãƒ”ãƒ¼ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ¼
+        /// </summary>
+        /// <param name="">Stringå‹ã®å·¦è¾ºå€¤å‚ç…§</param>
+        String(const String&) = delete;
+
+        /// <summary>
+        /// ã‚³ãƒ”ãƒ¼ä»£å…¥æ¼”ç®—å­
+        /// </summary>
+        /// <param name="">Stringå‹ã®å·¦è¾ºå€¤å‚ç…§</param>
+        /// <returns>Stringå‹ã®å·¦è¾ºå€¤å‚ç…§</returns>
+        String& operator=(const String&) = delete;
+
+        /// <summary>
+        /// ãƒ ãƒ¼ãƒ–ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ¼
+        /// </summary>
+        /// <param name="">Stringå‹ã®å³è¾ºå€¤å‚ç…§</param>
+        String(String&&) = delete;
+
+        /// <summary>
+        /// ã‚³ãƒ”ãƒ¼ä»£å…¥æ¼”ç®—å­
+        /// </summary>
+        /// <param name="">Stringå‹ã®å³è¾ºå€¤å‚ç…§</param>
+        /// <returns>Stringå‹ã®å·¦è¾ºå€¤å‚ç…§</returns>
+        String& operator=(String&&) = delete;
+    };
+
+    /// <summary>
+    /// æ—¥ä»˜ã‚’è¡¨ã™ã‚¯ãƒ©ã‚¹
+    /// </summary>
+    class Date final
+    {
+    public:
+        // å¹´
+        const int Year;
+
+        // æœˆ
+        const string Month;
+
+        // æ—¥
+        const int Day;
+
+        // æ›œæ—¥
+        const string DayOfWeek;
+
+        // æ™‚
+        const int Hour;
+
+        // åˆ†
+        const int Minute;
+
+        // ç§’
+        const int Second;
+
+        /// <summary>
+        /// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ¼
+        /// </summary>
+        /// <param name="year">å¹´</param>
+        /// <param name="month">æœˆ</param>
+        /// <param name="day">æ—¥</param>
+        /// <param name="dayOfWeek">æ›œæ—¥</param>
+        /// <param name="hour">æ™‚</param>
+        /// <param name="minute">åˆ†</param>
+        /// <param name="second">ç§’</param>
+        Date(const int& year, const string& month, const int& day, const string& dayOfWeek, const int& hour, const int& minute, const int& second) :
+            Year(year),
+            Month(month),
+            Day(day),
+            DayOfWeek(dayOfWeek),
+            Hour(hour),
+            Minute(minute),
+            Second(second)
+        {}
+
+        /// <summary>
+        /// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+        /// </summary>
+        ~Date() = default;
+    };
+
+    /// <summary>
+    /// æ—¥ä»˜ã«é–¢ã™ã‚‹ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã‚¯ãƒ©ã‚¹
+    /// </summary>
+    class DateTime final
+    {
+    public:
+        /// <summary>
+        /// ç¾åœ¨ã®ç¾åœ°æ—¥æ™‚ã‚’è¿”ã—ã¾ã™ã€‚
+        /// </summary>
+        /// <returns>ä»Šæ—¥ã®æ—¥ä»˜</returns>
+        inline static Date Now()
+        {
+            // é™çš„é–¢æ•°ã‚¹ã‚³ãƒ¼ãƒ—ã§åå‰ç©ºé–“std::chronoã‚’çœç•¥ã™ã‚‹
+            using namespace std::chrono;
+
+            // ç¾åœ¨æ—¥æ™‚ã‚’å–å¾—
+            auto timePoint = system_clock::now();
+
+            // time_pointã‚’POSIX æ™‚é–“ï¼ˆtime_tï¼‰ã«å¤‰æ›
+            auto timeTValue = system_clock::to_time_t(timePoint);
+
+            // æ™‚é–“ã‚’è¡¨ã™æ–‡å­—åˆ—ã‚’å–ã‚Šå‡ºã™ãƒãƒƒãƒ•ã‚¡
+            char buffer[26];
+
+            // POSIX æ™‚é–“ã‹ã‚‰æ™‚é–“ã‚’è¡¨ã™æ–‡å­—åˆ—ã«å¤‰æ›
+            ctime_s(buffer, sizeof buffer, &timeTValue);
+
+            // char[]ã‚’stringã«å¤‰æ›
+            auto timeString = string(buffer);
+
+            // æ–‡å­—åˆ—ã‹ã‚‰\nã‚’å‰Šé™¤ã™ã‚‹
+            timeString = timeString.substr(0, timeString.size() - 1);
+
+            // åŠè§’ã‚¹ãƒšãƒ¼ã‚¹ã‚’åŒºåˆ‡ã‚Šæ–‡å­—ã¨ã—ã¦æ–‡å­—åˆ—ã‚’åˆ†å‰²ã™ã‚‹
+            auto result = String::Split(timeString, ' ');
+
+            // æ›œæ—¥ã‚’å–ã‚Šå‡ºã™
+            auto dayOfWeek = result[0];
+
+            // æœˆã‚’å–ã‚Šå‡ºã™
+            auto month = result[1];
+
+            // æ—¥ã‚’å–ã‚Šå‡ºã™
+            auto day = stoi(result[2]);
+
+            // å¹´ã‚’å–ã‚Šå‡ºã™
+            auto year = stoi(result[4]);
+
+            // æ™‚ã€åˆ†ã€ç§’ã«åˆ†è§£ã™ã‚‹
+            auto hourAndMinuteAndSecond = String::Split(result[3], ':');
+
+            // æ™‚ã‚’å–ã‚Šå‡ºã™
+            auto hour = stoi(hourAndMinuteAndSecond[0]);
+
+            // åˆ†ã‚’å–ã‚Šå‡ºã™
+            auto minute = stoi(hourAndMinuteAndSecond[1]);
+
+            // ç§’ã‚’å–ã‚Šå‡ºã™
+            auto second = stoi(hourAndMinuteAndSecond[2]);
+
+            return Date{ year,  month,  day,  dayOfWeek,  hour,  minute,  second };
+        }
+    private:
+        // æ“¬ä¼¼çš„ãªé™çš„ã‚¯ãƒ©ã‚¹ã¨ã—ã¦æ‰±ã†ãŸã‚ã«ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ¼ç­‰ã‚’privateã«ã™ã‚‹
+
+        /// <summary>
+        /// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ¼
+        /// </summary>
+        DateTime() = default;
+
+        /// <summary>
+        /// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+        /// </summary>
+        ~DateTime() = default;
+
+        /// <summary>
+        /// ã‚³ãƒ”ãƒ¼ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ¼
+        /// </summary>
+        /// <param name="">DateTimeå‹ã®å·¦è¾ºå€¤å‚ç…§</param>
+        DateTime(const DateTime&) = delete;
+
+        /// <summary>
+        /// ã‚³ãƒ”ãƒ¼ä»£å…¥æ¼”ç®—å­
+        /// </summary>
+        /// <param name="">DateTimeå‹ã®å·¦è¾ºå€¤å‚ç…§</param>
+        /// <returns>DateTimeå‹ã®å·¦è¾ºå€¤å‚ç…§</returns>
+        DateTime& operator=(const DateTime&) = delete;
+
+        /// <summary>
+        /// ãƒ ãƒ¼ãƒ–ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ¼
+        /// </summary>
+        /// <param name="">DateTimeå‹ã®å³è¾ºå€¤å‚ç…§</param>
+        DateTime(DateTime&&) = delete;
+
+        /// <summary>
+        /// ã‚³ãƒ”ãƒ¼ä»£å…¥æ¼”ç®—å­
+        /// </summary>
+        /// <param name="">DateTimeå‹ã®å³è¾ºå€¤å‚ç…§</param>
+        /// <returns>DateTimeå‹ã®å·¦è¾ºå€¤å‚ç…§</returns>
+        DateTime& operator=(DateTime&&) = delete;
+    };
+
+    /// <summary>
+    /// ãƒ•ã‚¡ã‚¤ãƒ«ã«é–¢ã™ã‚‹ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã‚¯ãƒ©ã‚¹
+    /// </summary>
+    class FileSystem
+    {
+    public:
+        /// <summary>
+        /// æŒ‡å®šã—ãŸãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ãƒ‘ã‚¹ã«ã‚ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã€ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®æ•°ã‚’è¿”ã—ã¾ã™ã€‚
+        /// </summary>
+        /// <param name="root"></param>
+        /// <returns></returns>
+        inline static size_t FileCount(const filesystem::path& path)
+        {
+            // é™çš„é–¢æ•°ã‚¹ã‚³ãƒ¼ãƒ—ã§åå‰ç©ºé–“std::filesystemã‚’çœç•¥ã™ã‚‹
+            using namespace std::filesystem;
+
+            // ãƒ‘ã‚¹ãŒå­˜åœ¨ã—ãªã„ã‹æŒ‡å®šã—ãŸãƒ‘ã‚¹ãŒãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã§ãªã„ãªã‚‰0ã‚’è¿”ã™
+            if (!exists(path) || !is_directory(path)) return 0;
+
+            // ãƒ•ã‚¡ã‚¤ãƒ«ã®æ•°
+            std::size_t result = 0;
+
+            // ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚¤ãƒ†ãƒ¬ãƒ¼ã‚¿
+            directory_iterator last;
+
+            // å†å¸°çš„ã«ãƒ•ã‚¡ã‚¤ãƒ«ã€ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®æ•°ã‚’æ•°ãˆã‚‹
+            for (directory_iterator pos(path); pos != last; ++pos)
+            {
+                ++result;
+                if (is_directory(*pos)) result += FileCount(pos->path());
+            }
+
+            return result;
+        }
+    private:
+        // æ“¬ä¼¼çš„ãªé™çš„ã‚¯ãƒ©ã‚¹ã¨ã—ã¦æ‰±ã†ãŸã‚ã«ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ¼ç­‰ã‚’privateã«ã™ã‚‹
+
+        /// <summary>
+        /// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ¼
+        /// </summary>
+        FileSystem() = default;
+
+        /// <summary>
+        /// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+        /// </summary>
+        ~FileSystem() = default;
+
+        /// <summary>
+        /// ã‚³ãƒ”ãƒ¼ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ¼
+        /// </summary>
+        /// <param name="">FileSystemå‹ã®å·¦è¾ºå€¤å‚ç…§</param>
+        FileSystem(const FileSystem&) = delete;
+
+        /// <summary>
+        /// ã‚³ãƒ”ãƒ¼ä»£å…¥æ¼”ç®—å­
+        /// </summary>
+        /// <param name="">FileSystemå‹ã®å·¦è¾ºå€¤å‚ç…§</param>
+        /// <returns>FileSystemå‹ã®å·¦è¾ºå€¤å‚ç…§</returns>
+        FileSystem& operator=(const FileSystem&) = delete;
+
+        /// <summary>
+        /// ãƒ ãƒ¼ãƒ–ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ¼
+        /// </summary>
+        /// <param name="">FileSystemå‹ã®å³è¾ºå€¤å‚ç…§</param>
+        FileSystem(FileSystem&&) = delete;
+
+        /// <summary>
+        /// ã‚³ãƒ”ãƒ¼ä»£å…¥æ¼”ç®—å­
+        /// </summary>
+        /// <param name="">FileSystemå‹ã®å³è¾ºå€¤å‚ç…§</param>
+        /// <returns>FileSystemå‹ã®å·¦è¾ºå€¤å‚ç…§</returns>
+        FileSystem& operator=(FileSystem&&) = delete;
+    };
+
+    /// <summary>
+    /// ãƒ­ã‚°ã«é–¢ã™ã‚‹ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã‚¯ãƒ©ã‚¹
+    /// </summary>
+    class Log final
+    {
+    public:
+        /// <summary>
+        /// ç¾åœ¨ã®ç¾åœ°æ—¥ä»˜ã«åŸºã¥ã„ã¦ãƒ­ã‚°ç”¨ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’ä½œæˆã—ã¾ã™ã€‚
+        /// </summary>
+        /// <returns>ãƒ­ã‚°ç”¨ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ç›¸å¯¾ãƒ‘ã‚¹</returns>
+        inline static string CreateLogDirectoryFromTodaysDate()
+        {
+            // é™çš„é–¢æ•°ã‚¹ã‚³ãƒ¼ãƒ—ã§åå‰ç©ºé–“std::filesystemã‚’çœç•¥ã™ã‚‹
+            using namespace std::filesystem;
+
+            // ç¾åœ¨ã®ç¾åœ°æ—¥ä»˜ã‚’å–å¾—ã™ã‚‹
+            auto date = DateTime::Now();
+
+            // Logãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ç›¸å¯¾ãƒ‘ã‚¹
+            auto logDirectory = "Log"s;
+
+            // ã‚‚ã—Logãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒå­˜åœ¨ã—ãªã„ãªã‚‰Logãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’ä½œã‚‹
+            if (!exists(logDirectory))
+            {
+                create_directory(logDirectory);
+            }
+
+            // yearãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ç›¸å¯¾ãƒ‘ã‚¹
+            auto yearDirectory = "Log"s + "/"s + to_string(date.Year);
+
+            // ã‚‚ã—yearãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒå­˜åœ¨ã—ãªã„ãªã‚‰yearãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’ä½œã‚‹
+            if (!exists(yearDirectory))
+            {
+                create_directory(yearDirectory);
+            }
+
+            // monthãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ç›¸å¯¾ãƒ‘ã‚¹
+            auto monthDirectory = "Log"s + "/"s + to_string(date.Year) + "/"s + date.Month;
+
+            // ã‚‚ã—monthãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒå­˜åœ¨ã—ãªã„ãªã‚‰monthãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’ä½œã‚‹
+            if (!exists(monthDirectory))
+            {
+                create_directory(monthDirectory);
+            }
+
+            // dayãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ç›¸å¯¾ãƒ‘ã‚¹
+            auto dayDirectory = "Log"s + "/"s + to_string(date.Year) + "/"s + date.Month + "/"s + to_string(date.Day);
+
+            // ã‚‚ã—dayãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒå­˜åœ¨ã—ãªã„ãªã‚‰dayãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’ä½œã‚‹
+            if (!exists(dayDirectory))
+            {
+                create_directory(dayDirectory);
+            }
+
+            // dayãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªå†…ã®ãƒ•ã‚¡ã‚¤ãƒ«ã®æ•°ã‚’å–å¾—ã™ã‚‹
+            auto fileCount = FileSystem::FileCount(dayDirectory);
+
+            // ã‚¹ãƒˆãƒªãƒ³ã‚°ã‚¹ãƒˆãƒªãƒ¼ãƒ 
+            std::stringstream stringStream;
+
+            // æ–‡å­—åˆ—ã‚’åŠè§’5æ–‡å­—ã«ãã‚ãˆã‚‹ã€5æ–‡å­—ç„¡ã„å ´åˆã¯0ã§åŸ‹ã‚ã‚‹
+            stringStream << setw(5) << setfill('0') << to_string(fileCount + 1);
+
+            // åå‰ãŒdayãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªå†…ã®ãƒ•ã‚¡ã‚¤ãƒ«æ•°ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ç›¸å¯¾ãƒ‘ã‚¹
+            auto fileCountDirectory = "Log"s + "/"s + to_string(date.Year) + "/"s + date.Month + "/"s + to_string(date.Day) + "/"s + stringStream.str();
+
+            // åå‰ãŒdayãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªå†…ã®ãƒ•ã‚¡ã‚¤ãƒ«æ•°ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’ä½œã‚‹
+            create_directory(fileCountDirectory);
+
+            return fileCountDirectory;
+        }
+    private:
+        // æ“¬ä¼¼çš„ãªé™çš„ã‚¯ãƒ©ã‚¹ã¨ã—ã¦æ‰±ã†ãŸã‚ã«ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ¼ç­‰ã‚’privateã«ã™ã‚‹
+
+        /// <summary>
+        /// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ¼
+        /// </summary>
+        Log() = default;
+
+        /// <summary>
+        /// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+        /// </summary>
+        ~Log() = default;
+
+        /// <summary>
+        /// ã‚³ãƒ”ãƒ¼ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ¼
+        /// </summary>
+        /// <param name="">Logå‹ã®å·¦è¾ºå€¤å‚ç…§</param>
+        Log(const Log&) = delete;
+
+        /// <summary>
+        /// ã‚³ãƒ”ãƒ¼ä»£å…¥æ¼”ç®—å­
+        /// </summary>
+        /// <param name="">Logå‹ã®å·¦è¾ºå€¤å‚ç…§</param>
+        /// <returns>Logå‹ã®å·¦è¾ºå€¤å‚ç…§</returns>
+        Log& operator=(const Log&) = delete;
+
+        /// <summary>
+        /// ãƒ ãƒ¼ãƒ–ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ¼
+        /// </summary>
+        /// <param name="">Logå‹ã®å³è¾ºå€¤å‚ç…§</param>
+        Log(Log&&) = delete;
+
+        /// <summary>
+        /// ã‚³ãƒ”ãƒ¼ä»£å…¥æ¼”ç®—å­
+        /// </summary>
+        /// <param name="">Logå‹ã®å³è¾ºå€¤å‚ç…§</param>
+        /// <returns>Logå‹ã®å·¦è¾ºå€¤å‚ç…§</returns>
+        Log& operator=(Log&&) = delete;
+    };
 }
