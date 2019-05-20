@@ -1,2 +1,2 @@
 # CreateLogDirectoryFromTodaysDate-
-C++でログ用のディレクトリを作る
+C++でログ用のディレクトリを作るライブラリ
