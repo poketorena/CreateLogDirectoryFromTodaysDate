@@ -65,7 +65,7 @@ namespace MyUtility
         String() = default;
 
         /// <summary>
-        /// デフォルトデストラクタ
+        /// デフォルトデストラクター
         /// </summary>
         ~String() = default;
 
@@ -144,7 +144,7 @@ namespace MyUtility
         {}
 
         /// <summary>
-        /// デフォルトデストラクタ
+        /// デフォルトデストラクター
         /// </summary>
         ~Date() = default;
     };
@@ -220,7 +220,7 @@ namespace MyUtility
         DateTime() = default;
 
         /// <summary>
-        /// デフォルトデストラクタ
+        /// デフォルトデストラクター
         /// </summary>
         ~DateTime() = default;
 
@@ -294,7 +294,7 @@ namespace MyUtility
         FileSystem() = default;
 
         /// <summary>
-        /// デフォルトデストラクタ
+        /// デフォルトデストラクター
         /// </summary>
         ~FileSystem() = default;
 
@@ -405,7 +405,7 @@ namespace MyUtility
         Log() = default;
 
         /// <summary>
-        /// デフォルトデストラクタ
+        /// デフォルトデストラクター
         /// </summary>
         ~Log() = default;
 
