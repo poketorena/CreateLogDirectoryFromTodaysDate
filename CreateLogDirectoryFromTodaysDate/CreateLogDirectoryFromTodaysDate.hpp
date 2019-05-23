@@ -60,36 +60,36 @@ namespace MyUtility
         // 擬似的な静的クラスとして扱うためにコンストラクター等をprivateにする
 
         /// <summary>
-        /// デフォルトコンストラクター
+        /// デフォルトコンストラクターを削除
         /// </summary>
         String() = default;
 
         /// <summary>
-        /// デフォルトデストラクター
+        /// デフォルトデストラクターを削除
         /// </summary>
         ~String() = default;
 
         /// <summary>
-        /// コピーコンストラクター
+        /// コピーコンストラクターを削除
         /// </summary>
         /// <param name="">String型の左辺値参照</param>
         String(const String&) = delete;
 
         /// <summary>
-        /// コピー代入演算子
+        /// コピー代入演算子を削除
         /// </summary>
         /// <param name="">String型の左辺値参照</param>
         /// <returns>String型の左辺値参照</returns>
         String& operator=(const String&) = delete;
 
         /// <summary>
-        /// ムーブコンストラクター
+        /// ムーブコンストラクターを削除
         /// </summary>
         /// <param name="">String型の右辺値参照</param>
         String(String&&) = delete;
 
         /// <summary>
-        /// コピー代入演算子
+        /// ムーブ代入演算子を削除
         /// </summary>
         /// <param name="">String型の右辺値参照</param>
         /// <returns>String型の左辺値参照</returns>
@@ -144,7 +144,7 @@ namespace MyUtility
         {}
 
         /// <summary>
-        /// デフォルトデストラクター
+        /// デフォルトデストラクターを削除
         /// </summary>
         ~Date() = default;
     };
@@ -215,36 +215,36 @@ namespace MyUtility
         // 擬似的な静的クラスとして扱うためにコンストラクター等をprivateにする
 
         /// <summary>
-        /// デフォルトコンストラクター
+        /// デフォルトコンストラクターを削除
         /// </summary>
         DateTime() = default;
 
         /// <summary>
-        /// デフォルトデストラクター
+        /// デフォルトデストラクターを削除
         /// </summary>
         ~DateTime() = default;
 
         /// <summary>
-        /// コピーコンストラクター
+        /// コピーコンストラクターを削除
         /// </summary>
         /// <param name="">DateTime型の左辺値参照</param>
         DateTime(const DateTime&) = delete;
 
         /// <summary>
-        /// コピー代入演算子
+        /// コピー代入演算子を削除
         /// </summary>
         /// <param name="">DateTime型の左辺値参照</param>
         /// <returns>DateTime型の左辺値参照</returns>
         DateTime& operator=(const DateTime&) = delete;
 
         /// <summary>
-        /// ムーブコンストラクター
+        /// ムーブコンストラクターを削除
         /// </summary>
         /// <param name="">DateTime型の右辺値参照</param>
         DateTime(DateTime&&) = delete;
 
         /// <summary>
-        /// コピー代入演算子
+        /// ムーブ代入演算子を削除
         /// </summary>
         /// <param name="">DateTime型の右辺値参照</param>
         /// <returns>DateTime型の左辺値参照</returns>
@@ -289,36 +289,36 @@ namespace MyUtility
         // 擬似的な静的クラスとして扱うためにコンストラクター等をprivateにする
 
         /// <summary>
-        /// デフォルトコンストラクター
+        /// デフォルトコンストラクターを削除
         /// </summary>
         FileSystem() = default;
 
         /// <summary>
-        /// デフォルトデストラクター
+        /// デフォルトデストラクターを削除
         /// </summary>
         ~FileSystem() = default;
 
         /// <summary>
-        /// コピーコンストラクター
+        /// コピーコンストラクターを削除
         /// </summary>
         /// <param name="">FileSystem型の左辺値参照</param>
         FileSystem(const FileSystem&) = delete;
 
         /// <summary>
-        /// コピー代入演算子
+        /// コピー代入演算子を削除
         /// </summary>
         /// <param name="">FileSystem型の左辺値参照</param>
         /// <returns>FileSystem型の左辺値参照</returns>
         FileSystem& operator=(const FileSystem&) = delete;
 
         /// <summary>
-        /// ムーブコンストラクター
+        /// ムーブコンストラクターを削除
         /// </summary>
         /// <param name="">FileSystem型の右辺値参照</param>
         FileSystem(FileSystem&&) = delete;
 
         /// <summary>
-        /// コピー代入演算子
+        /// ムーブ代入演算子を削除
         /// </summary>
         /// <param name="">FileSystem型の右辺値参照</param>
         /// <returns>FileSystem型の左辺値参照</returns>
@@ -400,36 +400,36 @@ namespace MyUtility
         // 擬似的な静的クラスとして扱うためにコンストラクター等をprivateにする
 
         /// <summary>
-        /// デフォルトコンストラクター
+        /// デフォルトコンストラクターを削除
         /// </summary>
         Log() = default;
 
         /// <summary>
-        /// デフォルトデストラクター
+        /// デフォルトデストラクターを削除
         /// </summary>
         ~Log() = default;
 
         /// <summary>
-        /// コピーコンストラクター
+        /// コピーコンストラクターを削除
         /// </summary>
         /// <param name="">Log型の左辺値参照</param>
         Log(const Log&) = delete;
 
         /// <summary>
-        /// コピー代入演算子
+        /// コピー代入演算子を削除
         /// </summary>
         /// <param name="">Log型の左辺値参照</param>
         /// <returns>Log型の左辺値参照</returns>
         Log& operator=(const Log&) = delete;
 
         /// <summary>
-        /// ムーブコンストラクター
+        /// ムーブコンストラクターを削除
         /// </summary>
         /// <param name="">Log型の右辺値参照</param>
         Log(Log&&) = delete;
 
         /// <summary>
-        /// コピー代入演算子
+        /// ムーブ代入演算子を削除
         /// </summary>
         /// <param name="">Log型の右辺値参照</param>
         /// <returns>Log型の左辺値参照</returns>
