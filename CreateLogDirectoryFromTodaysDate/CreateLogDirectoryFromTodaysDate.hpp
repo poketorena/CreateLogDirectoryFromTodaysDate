@@ -134,15 +134,15 @@ public:
     /// <param name="hour">時</param>
     /// <param name="minute">分</param>
     /// <param name="second">秒</param>
-    Date(const int &year, const string &month, const int &day, const string &dayOfWeek, const int &hour, const int &minute, const int &second) : Year(year),
-                                                                                                                                                 Month(month),
-                                                                                                                                                 Day(day),
-                                                                                                                                                 DayOfWeek(dayOfWeek),
-                                                                                                                                                 Hour(hour),
-                                                                                                                                                 Minute(minute),
-                                                                                                                                                 Second(second)
-    {
-    }
+    Date(const int &year, const string &month, const int &day, const string &dayOfWeek, const int &hour, const int &minute, const int &second) :
+        Year(year),
+        Month(month),
+        Day(day),
+        DayOfWeek(dayOfWeek),
+        Hour(hour),
+        Minute(minute),
+        Second(second)
+    {}
 
     /// <summary>
     /// デフォルトデストラクター
